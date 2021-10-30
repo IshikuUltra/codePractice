@@ -33,6 +33,7 @@ class LinkedList(object):
 
     def pop(self): #Clearing self.end might effect the push method
         pass
+        
 
     def unshift(self):
         #remove first node
