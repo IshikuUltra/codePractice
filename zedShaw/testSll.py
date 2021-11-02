@@ -22,19 +22,9 @@ class LinkedList(object):
             self.end.next = curNode 
             self.end = curNode
 
-    def printList(self):
-        while self.begin != None:
-            print(self.begin)
-            self.begin = self.begin.next
-
 
 list = LinkedList()
 list.push(1)
 list.push(2)
-list.push(3)
-list.push(4)
-# print(f"{id(list.begin)}:{list.begin}, {id(list.end)}:{list.end}")
-
-
-list.printList()
-# print(list.begin.next.next.next.next)
+print(list.begin)
+print(list.begin.next == None)
