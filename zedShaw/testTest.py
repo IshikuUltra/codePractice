@@ -1,4 +1,4 @@
-#####################################
+# # ## # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 class Node:
  
     def __init__(self, data):
@@ -26,8 +26,7 @@ class LinkedList:
             self.end.next = curNode # why is sll.end receiving the node but not self.begin (only after pop is invoked)
             self.end = curNode
             
-
-    def count(self):
+    def count(self): # dont touch it perfect
         temp = self.begin
         count = 0
         while temp != None:
@@ -35,30 +34,42 @@ class LinkedList:
             temp = temp.next
         return count
 
+    def pop(self): # removes last item and returns it
+        tmp = self.begin
+        while tmp.next != None:
+            if tmp.next.next == None:
+                self.end = tmp
+                tmp.next = None
+                print(tmp)
+                break
+            tmp = tmp.next
 
-    def pop(self, thisNode=begin): 
+    def shift(self, data): # insert node at beginning of list
+        node = Node(data)
+        tmp = self.begin
+        node.next = tmp 
+        self.begin = node
+
+    def unshift(self): #removes first node from list
+        tmp = self.begin
+        self.begin = self.begin.next
         tmp = None
-        if thisNode.next.next == None:
-            tmp = thisNode.next.next
-            thisNode.next = None
-            return tmp
-        else:
-            return self.pop(thisNode.next)
-
-    def unshift(self):
-        pass
     
-    def first(self):
-        #returns first node
-        pass
+    def first(self): #returns first node
+        return f"{self.begin.data}"
 
-    def last(self):
-        #returns last node
-        pass
+    def last(self): #returns last node
+        return f"{self.end.data}"
 
-    def get(self):
-        #get node at certain index
-        pass
+    def get(self, index): #get node at certain index
+        # idea: loop through the nodes mapping a index to their id()??
+        curIndex = 0
+        tmp = self.begin
+        while curIndex != index+1:
+            if curIndex == index:
+                return f"{tmp.data}"
+            tmp = tmp.next
+            curIndex+=1
 
     def printList(self):
         print(self.begin)
@@ -69,11 +80,24 @@ sll.push(2)
 sll.push(8)
 sll.push(9)
 sll.push(10)
-print(sll.count())
-print(sll.pop())
-# print(sll.pop()) # Something is severing self.begin from the node chain
-print(sll.begin)
 
+# print(sll.count())
+# print(sll.begin)
+# print(sll.pop())
+# print(sll.begin)
+# sll.push(11)
+# sll.unshift()
+# print(sll.begin)
+
+# sll.push(22)
+# print(sll.begin)
+# print(sll.first())
+
+# print(sll.last())
+# print(sll.get(4))
+# print(sll.begin)
 # sll.push(99)
 # print(sll.begin)
 # print(sll.pop())
+sll.shift(100)
+print(sll.begin)
