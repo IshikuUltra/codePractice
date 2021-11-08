@@ -44,23 +44,20 @@ class DoubleLinkedList:
         newNode = Node(data)
         newNode.next = self.begin
         self.begin = newNode
+        self.begin.next.last = newNode.data
+
+        return self.begin
 
     def unshift(self): #removes first item
-        tmp = self.begin 
         self.begin = self.begin.next
 
-#######
-#Notes: 
-    #1) node1.last wont point to node0.data
-    #2) when calling detatch node every node.last after the detatched node dont dynamically update
-######
 
     def detach_node(self, node): #removes node from anywhere in list
         tmp = self.begin
-        while tmp:
+        while tmp.next is not None:
             if tmp.data == node:
                 tmp.last.next = tmp.next
-                return tmp
+                return self.begin
             tmp = tmp.next
 
     def first(self): 
@@ -74,10 +71,11 @@ test = DoubleLinkedList()
 test.push(1)
 test.push(2)
 test.push(3)
-test.shift(100) #shift(0) causes print to fall apart -> solved, its because of your'e nval setup -> 0 is None of some sorts in python
+test.shift(0) #shifting causes node1 which was node0 
 test.push(4)
-# test.unshift()
-test.detach_node(0)
-# print(test.last())
-print(test.begin) #when shifting 0, self.begin prints-> [D:0, L:None, N:None] -> solved 
-# print(test.begin.next)#shfting 0 does still contain a pointer to node chain
+print(test.begin)
+test.unshift()
+# print(test.begin)
+test.detach_node(3)
+print(test.begin)
+#print(test.begin) #when shifting 0, self.begin prints-> [D:0, L:None, N:None] -> solved 
