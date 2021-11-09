@@ -25,13 +25,13 @@ class Stack:
             self.top = node
 
 # Incorrect pointers in pop() fix tomorrow
-    def pop(self):
+    def pop(self): # you need to move self.top back one also
         tmp = self.begin
-        while tmp.next is not None:
+        while tmp.next != None:
             if tmp.next.next is None:
-                clone = tmp.next
-                tmp.next = None 
-                return clone
+                tmp.next = None
+                self.top = tmp
+                break
             tmp = tmp.next
 
     def tops(self):
@@ -46,6 +46,12 @@ class Stack:
         return counted
             
 
-    def dump(self, mark="----"):
-        # debugging function that dumps the contents of the stack
-        pass
+    def dump(self, mark):
+        # debugging function that dumps the contents of the stack from mark
+        tmp = self.begin
+        while tmp.next != None:
+            if tmp.data == mark:
+                tmp.next = None
+                self.top = tmp
+                break
+            tmp = tmp.next
