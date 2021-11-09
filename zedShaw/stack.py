@@ -12,23 +12,39 @@ class StackNode:
 
 class Stack:
     def __init__(self):
+        self.begin = None
         self.top = None
 
     def push(self,data):
         node = StackNode(data)
-        if self.top is None:
+        if self.begin is None:
             self.top = node
+            self.begin = node
         else:
             self.top.next = node
+            self.top = node
 
+# Incorrect pointers in pop() fix tomorrow
     def pop(self):
-        pass
+        tmp = self.begin
+        while tmp.next is not None:
+            if tmp.next.next is None:
+                clone = tmp.next
+                tmp.next = None 
+                return clone
+            tmp = tmp.next
 
-    def top(self):
-        pass
+    def tops(self):
+        return self.top
 
     def count(self):
-        pass
+        counted = 0
+        tmp = self.begin
+        while tmp is not None:
+            counted +=1
+            tmp = tmp.next
+        return counted
+            
 
     def dump(self, mark="----"):
         # debugging function that dumps the contents of the stack
