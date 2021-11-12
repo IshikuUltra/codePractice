@@ -6,7 +6,7 @@ class Node:
         self.next = None
 
     def __repr__(self):
-        nval = self.data and self.next or None:
+        nval = self.data and self.next or None
         return f"{self.data}:{self.next}"
 
 class Queue:

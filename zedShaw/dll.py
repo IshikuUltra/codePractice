@@ -1,4 +1,4 @@
-#########################################################################################
+#############################################################################
 class Node: # no need for (object) in P3 
 
     def __init__(self,data):
@@ -25,7 +25,7 @@ class DoubleLinkedList:
             self.end = self.begin
         else:
             self.end.next = newNode
-            self.end.next.last = self.end
+            self.end.next.last = self.end # shows last as None if data is 0
             self.end = newNode #
 
     def pop(self): # remove last node
@@ -67,15 +67,15 @@ class DoubleLinkedList:
         return self.end
 
 
-test = DoubleLinkedList()
-test.push(1)
-test.push(2)
-test.push(3)
-test.shift(0) #shifting causes node1 which was node0 
-test.push(4)
-print(test.begin)
-test.unshift()
+# test = DoubleLinkedList()
+# test.push(1)
+# test.push(2)
+# test.push(3)
+# test.shift(0) #shifting causes node1 which was node0 
+# test.push(4)
 # print(test.begin)
-test.detach_node(3)
-print(test.begin)
+# test.unshift()
+# # print(test.begin)
+# test.detach_node(3)
+# print(test.begin)
 #print(test.begin) #when shifting 0, self.begin prints-> [D:0, L:None, N:None] -> solved 
