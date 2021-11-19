@@ -8,7 +8,9 @@ def test_push():
     test.push(1)
     test.push(2)
     test.push(9)
-    print(test.begin)    
+    # print(test.begin)  
+    # test.unshift()  
+    test.shift(666)
     return test.begin
 
-test_push()
+print(test_push())

@@ -1,4 +1,3 @@
-#############################################################################
 class Node: # no need for (object) in P3 
 
     def __init__(self,data):
@@ -25,7 +24,8 @@ class DoubleLinkedList:
             self.end = self.begin
         else:
             self.end.next = newNode
-            self.end.next.last = self.end # shows last as None if data is 0
+            # WHY IS THE FOLLOWING LINE SMOKING MY LIST??
+            self.end.next.last = self.end.data 
             self.end = newNode #
 
     def pop(self): # remove last node
@@ -44,11 +44,11 @@ class DoubleLinkedList:
         newNode = Node(data)
         newNode.next = self.begin
         self.begin = newNode
-        self.begin.next.last = newNode.data
-
+        self.begin.next.last = self.begin.data
         return self.begin
 
     def unshift(self): #removes first item
+        self.begin.next.last = None
         self.begin = self.begin.next
 
 
@@ -65,17 +65,3 @@ class DoubleLinkedList:
 
     def last(self): 
         return self.end
-
-
-# test = DoubleLinkedList()
-# test.push(1)
-# test.push(2)
-# test.push(3)
-# test.shift(0) #shifting causes node1 which was node0 
-# test.push(4)
-# print(test.begin)
-# test.unshift()
-# # print(test.begin)
-# test.detach_node(3)
-# print(test.begin)
-#print(test.begin) #when shifting 0, self.begin prints-> [D:0, L:None, N:None] -> solved 
