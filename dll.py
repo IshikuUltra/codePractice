@@ -7,7 +7,7 @@ class Node: # no need for (object) in P3
 
     def __repr__(self): 
         nval = self.data and self.next or None 
-        pval = self.last and self.last.data or None 
+        pval = self.last or None # and self.last.data
         return f"[D:{self.data}, L:{repr(pval)}, N:{repr(self.next)}]"
 
 

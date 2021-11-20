@@ -10,7 +10,7 @@ def test_push():
     test.push(9)
     # print(test.begin)  
     # test.unshift()  
-    test.shift(666)
+    # test.shift(666)
     return test.begin
 
-print(test_push())
+# print(test_push())
