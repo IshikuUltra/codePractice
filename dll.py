@@ -7,7 +7,7 @@ class Node: # no need for (object) in P3
 
     def __repr__(self): 
         nval = self.data and self.next or None 
-        pval = self.last or None # and self.last.data
+        pval = self.last and self.last.data or None
         return f"[D:{self.data}, L:{repr(pval)}, N:{repr(self.next)}]"
 
 
@@ -24,8 +24,7 @@ class DoubleLinkedList:
             self.end = self.begin
         else:
             self.end.next = newNode
-            # WHY IS THE FOLLOWING LINE SMOKING MY LIST??
-            self.end.next.last = self.end.data 
+            self.end.next.last = self.end 
             self.end = newNode #
 
     def pop(self): # remove last node
@@ -47,12 +46,12 @@ class DoubleLinkedList:
         self.begin.next.last = self.begin.data
         return self.begin
 
-    def unshift(self): #removes first item
+    def unshift(self): 
         self.begin.next.last = None
         self.begin = self.begin.next
 
 
-    def detach_node(self, node): #removes node from anywhere in list
+    def detach_node(self, node): 
         tmp = self.begin
         while tmp.next is not None:
             if tmp.data == node:
@@ -65,3 +64,13 @@ class DoubleLinkedList:
 
     def last(self): 
         return self.end
+
+
+# test = DoubleLinkedList()
+# test.push(11)
+# test.push(1)
+# test.push(2)
+# test.push(3)
+# test.push(4)
+# print(test.begin)
+# print(test.begin.next.next.last)
