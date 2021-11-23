@@ -1,6 +1,6 @@
 # Bubble sort algorithm
 # Test it on DoubleLinkedList
-from dllTest import *
+# from dllTest import *
 
 def bubble_sort(numbers): #-> numbers is test.begin
     #Dont overcomplicate the system.

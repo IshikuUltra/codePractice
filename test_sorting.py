@@ -1,4 +1,5 @@
 import bubble_sort
+import mergeSort
 from dll import *
 from random import randint
 
@@ -23,8 +24,15 @@ def test_bubble_sort():
     sorted = bubble_sort.bubble_sort(numbers)
     return sorted
 
-print(test_bubble_sort())
+# print(test_bubble_sort())
 # print(is_sorted(test_bubble_sort()))
 
 def test_merge_sort():
-    pass
+    numbers = random_list(4)
+    print(numbers)
+    # sorted = mergeSort.mergeSort(numbers)
+    return mergeSort.count(numbers)
+
+# print(test_merge_sort())
+print(test_merge_sort())
+# print(is_sorted(test_merge_sort))
