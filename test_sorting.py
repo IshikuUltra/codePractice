@@ -30,8 +30,8 @@ def test_bubble_sort():
 def test_merge_sort():
     numbers = random_list(4)
     print(numbers)
-    # sorted = mergeSort.mergeSort(numbers)
-    return mergeSort.count(numbers)
+    sorted = mergeSort.merge_sort(numbers)
+    return sorted
 
 # print(test_merge_sort())
 print(test_merge_sort())
