@@ -12,7 +12,7 @@ def merge_sort(numbers):
     return sorted
 
 def merge_node(start):
-    if start.next == None:
+    if start.next == None: #'if start.next' is an statement
         return start # loads nodes into listLeft, listRight
 
     mid = count(start) // 2
@@ -26,7 +26,7 @@ def merge_node(start):
     mid_point.last = None
 
     #sweet sweet recursion
-    listLeft = merge_node(start) 
+    listLeft = merge_node(start)
     listRight = merge_node(mid_point)
 
     return merge(listLeft, listRight)
@@ -37,13 +37,13 @@ def merge(left, right):
 
     if left is None: return right
     if right is None: return left
-    #
-    if left.data <= right.data:
+    
+    if left.data < right.data:
         result = left
-        result.next = merge(left, right.next) #wait, this does not have a next attribute...
+        result.next = merge(left.next, right) #
     else:
         result = right
-        result.next = merge(left.next, right)
+        result.next = merge(left, right.next)
 
-    result.next.last = result #wtf 
-    return result
+    result.next.last = result 
+    return result #where is this being stored?

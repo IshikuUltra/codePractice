@@ -7,7 +7,7 @@ def random_list(size):
     test = DoubleLinkedList()
     n=0
     while n != size:
-        test.push(randint(1,1000))
+        test.push(randint(1,50))
         n +=1
     # print(test.begin)
     return test.begin
