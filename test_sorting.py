@@ -1,5 +1,6 @@
 import bubble_sort
 import mergeSort
+import quickSort
 from dll import *
 from random import randint
 
@@ -34,5 +35,12 @@ def test_merge_sort():
     return sorted
 
 # print(test_merge_sort())
-print(test_merge_sort())
+# print(test_merge_sort())
 # print(is_sorted(test_merge_sort))
+
+def quick_sort():
+    numbers = random_list(4)
+    sorted = quickSort.lowToHight(numbers)
+    return sorted
+
+print(quick_sort())
